@@ -8,7 +8,7 @@ import 'package:image_lut/image_lut.dart';
 import 'package:image_lut/src/lut.dart';
 
 void main() {
-  test('adds one to input values', () {
+  test('adds one to input values', () async {
     // final calculator = Calculator();
     // expect(calculator.addOne(2), 3);
     // expect(calculator.addOne(-7), -6);
@@ -20,7 +20,7 @@ void main() {
     final image_file = File("./demo.jpg");
     final image = decodeImage(image_file.readAsBytesSync());
     print("s: ${DateTime.now().millisecondsSinceEpoch}");
-    final data = lut.filter(image.getBytes());
+    final data = await lut.filter(image.getBytes());
     print("ss: ${DateTime.now().millisecondsSinceEpoch}");
 
     File file2 = File("./demo-result-2.jpg");
