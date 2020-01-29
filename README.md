@@ -2,6 +2,20 @@
 
 A new Flutter package project.
 
+
+```
+final lut = Lut.loadLut("./lut02.jpg");
+
+final image_file = File("./demo.jpg");
+final image = decodeImage(image_file.readAsBytesSync());
+
+final data = lut.filter(image.getBytes());
+
+File file2 = File("./demo-result-2.jpg");
+final image2 = Image.fromBytes(image.width, image.height, data);
+file2.writeAsBytesSync(encodeJpg(image2));
+```
+
 ## Getting Started
 
 This project is a starting point for a Dart
